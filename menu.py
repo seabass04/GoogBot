@@ -1,3 +1,4 @@
+from addevent import addEvent
 from datetime import time
 from datetime import date
 
@@ -33,12 +34,31 @@ def addevent():
     eventTitle = raw_input ("Enter event title: \n")
 
     eventDate = raw_input ("Enter date (x x): \n")
-    eventDate = date(2020, 12, 4).isoformat()
+    eventDate = parseDate(eventDate)
+
+    print ("Parsed Date :[%s]" %eventDate)
 
     dateCreated = date.today()
     eventDescription = raw_input("Enter event description: \n")
-    eventDescription += 'Created by GoogBot: %s' %DATE,
+    eventDescription += '\nCreated by GoogBot: %s' %dateCreated
 
-def parseDate
+    print('\nTitle:[%s]'%eventTitle)
+    print('Date:[%s]'%eventDate)
+    print('Description:[%s]\n'%eventDescription)
+
+    addEvent (eventTitle, eventDate, eventDescription)
+
+
+
+def parseDate(dateIn):
+    #print("[%s]"%dateIn)
+    month = dateIn.split()[0]
+    day = dateIn.split()[1]
+
+    month = int(month)
+    day = int(day)
+
+    return date(2020, month , day).isoformat()
+
 
 menu()

@@ -12,27 +12,24 @@ if not creds or creds.invalid:
     creds = tools.run_flow(flow, store)
 GCAL = discovery.build('calendar', 'v3', http=creds.authorize(Http()))
 
-DATEToday = date.today()
+dateToday = date.today()
 GMT_OFF = '-07:00'      # PDT/MST/GMT-7
 
 
 def addEvent (title, date, description):
     EVENT = {
         'summary': '%s' %title,
-        'description': '%s\n\nCreated by GoogBot: %s' %(description, DATEToday),
-        'start':  {'date': '2020-09-15'},
-        'end':    {'date': '2020-09-15'},
+        'description': '%s' %description,
+        'start':  {'date': '%s'%date},
+        'end':    {'date': '%s'%date},
         'colorId': '11'
     }
 
+    e = GCAL.events().insert(calendarId='primary',
+            sendNotifications=True, body=EVENT).execute()
 
-
-
-e = GCAL.events().insert(calendarId='primary',
-        sendNotifications=True, body=EVENT).execute()
-
-print('''*** %r event added:
-    Start: %s
-    End:   %s''' % (e['summary'].encode('utf-8'),
-        #e['start']['dateTime'], e['end']['dateTime']))
-        e['start'], e['end']))
+    #print('''*** %r event added:
+    #    Start: %s
+    #    End:   %s''' % (e['summary'].encode('utf-8'),
+    #        #e['start']['dateTime'], e['end']['dateTime']))
+    #        e['start'], e['end']))
