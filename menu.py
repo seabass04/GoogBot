@@ -9,7 +9,6 @@ def menu():
         userIN = raw_input()
 
         if userIN == "1":
-            print ("Option 1 selected\n")
             addevent()
 
         elif userIN == "2":
@@ -29,29 +28,28 @@ def colorchange():
     print ("This would give options to change color and what not\n")
 
 def addevent():
-    print ("This begins the add event function\n")
+    eventTitle = raw_input ("\nEnter event title: \n")
 
-    eventTitle = raw_input ("Enter event title: \n")
-
-    eventDate = raw_input ("Enter date (x x): \n")
+    eventDate = raw_input ("Enter date (m d): \n")
     eventDate = parseDate(eventDate)
 
-    print ("Parsed Date :[%s]" %eventDate)
-
     dateCreated = date.today()
-    eventDescription = raw_input("Enter event description: \n")
-    eventDescription += '\nCreated by GoogBot: %s' %dateCreated
 
-    print('\nTitle:[%s]'%eventTitle)
-    print('Date:[%s]'%eventDate)
-    print('Description:[%s]\n'%eventDescription)
+    eventDescription = raw_input("Enter event description: \n")
+    if not eventDescription:
+        eventDescription += 'asdasdCreated by GoogBot: %s' %dateCreated
+    else:
+        eventDescription += '\nCreated by GoogBot: %s' %dateCreated
+        print
+
+    #print('Title:[%s]'%eventTitle)
+    #print('Date:[%s]'%eventDate)
+    #print('Description:[%s]\n'%eventDescription)
 
     addEvent (eventTitle, eventDate, eventDescription)
 
 
-
 def parseDate(dateIn):
-    #print("[%s]"%dateIn)
     month = dateIn.split()[0]
     day = dateIn.split()[1]
 
