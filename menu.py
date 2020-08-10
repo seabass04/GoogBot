@@ -1,11 +1,14 @@
 from addevent import addEvent
+from color import colorchange
+from color import getcolorId
+from color import getcolor
 from datetime import time
 from datetime import date
 
 def menu():
     while True:
         print ("Hello! Please enter an option or 'exit' to exit")
-        print ("1. Add Event\n2. Display Events\n3. Change event color")
+        print ("1. Add Event\n2. Display Events\n3. Change event color\n4. Display color")
         userIN = raw_input()
 
         if userIN == "1":
@@ -18,14 +21,15 @@ def menu():
             print ("Option 3 selected\n")
             colorchange()
 
+        elif userIN == "4":
+            print ("Option 4 selected\n")
+            print ("Current color: %s(%s)\n" %(getcolor(),getcolorId()))
+
         elif userIN == "exit" or userIN == "Exit":
             break
 
         else:
             print ("Invalid input\n")
-
-def colorchange():
-    print ("This would give options to change color and what not\n")
 
 def addevent():
     eventTitle = raw_input ("\nEnter event title: \n")
@@ -36,6 +40,7 @@ def addevent():
     dateCreated = date.today()
 
     eventDescription = raw_input("Enter event description: \n")
+
     if not eventDescription:
         eventDescription += 'asdasdCreated by GoogBot: %s' %dateCreated
     else:
@@ -50,11 +55,8 @@ def addevent():
 
 
 def parseDate(dateIn):
-    month = dateIn.split()[0]
-    day = dateIn.split()[1]
-
-    month = int(month)
-    day = int(day)
+    month = int(dateIn.split()[0])
+    day = int(dateIn.split()[1])
 
     return date(2020, month , day).isoformat()
 
