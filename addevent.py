@@ -3,6 +3,7 @@ from apiclient import discovery
 from httplib2 import Http
 from oauth2client import file, client, tools
 from datetime import date
+from color import getcolorId
 
 SCOPES = 'https://www.googleapis.com/auth/calendar'
 store = file.Storage('storage.json')
@@ -22,7 +23,7 @@ def addEvent (title, date, description):
         'description': '%s' %description,
         'start':  {'date': '%s'%date},
         'end':    {'date': '%s'%date},
-        'colorId': '11'
+        'colorId': '%s' %getcolorId()
     }
 
     e = GCAL.events().insert(calendarId='primary',

@@ -42,7 +42,7 @@ def addevent():
     eventDescription = raw_input("Enter event description: \n")
 
     if not eventDescription:
-        eventDescription += 'asdasdCreated by GoogBot: %s' %dateCreated
+        eventDescription += 'Created by GoogBot: %s' %dateCreated
     else:
         eventDescription += '\nCreated by GoogBot: %s' %dateCreated
         print
