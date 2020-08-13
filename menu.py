@@ -7,8 +7,8 @@ from datetime import date
 
 def menu():
     while True:
-        print ("Hello! Please enter an option or 'exit' to exit")
-        print ("1. Add Event\n2. Display Events\n3. Change event color\n4. Display color")
+        print ("Hello! Please select an option or 'exit' to exit")
+        print ("1. Add Event\n2. Display Events\n3. Change event color\n4. Display event color")
         userIN = raw_input()
 
         if userIN == "1":
@@ -18,12 +18,12 @@ def menu():
             print ("Option 2 selected\n")
 
         elif userIN == "3":
-            print ("Option 3 selected\n")
+            #print ("Option 3 selected\n")
             colorchange()
 
         elif userIN == "4":
-            print ("Option 4 selected\n")
-            print ("Current color: %s(%s)\n" %(getcolor(),getcolorId()))
+            #print ("Option 4 selected\n")
+            print ("\nCurrent color: %s(%s)\n" %(getcolor(),getcolorId()))
 
         elif userIN == "exit" or userIN == "Exit":
             break

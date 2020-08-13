@@ -1,7 +1,17 @@
 from itertools import islice
 
 def colorchange():
-    print ("This would give options to change color and what not\n")
+    #print ("This would give options to change color and what not\n")
+    colorfile = open("color.txt","w")#clears file
+    colors = ["Blue", "Green", "Purple", "Red", "Yellow", "Orange", "Turquoise", "Gray", "Bold Blue", "Bold Green", "Bold Red"]
+
+    print
+    for i in range(len(colors)):
+        print("%i. %s" %(i+1, colors[i]))
+
+    userIN = int(raw_input ("\nEnter color choice: \n"))
+    colorfile.write("%i %s\n" %(userIN,colors[userIN - 1]))
+    print
 
 def getcolorId():#returns string, may change to int
     colorfile = open("color.txt","r")
@@ -27,3 +37,4 @@ def getcolor():#returns string
 
 #print(getcolorId())
 #print(getcolor())
+#colorchange()
