@@ -9,7 +9,7 @@ def colorchange():
     for i in range(len(colors)):
         print("%i. %s" %(i+1, colors[i]))
 
-    userIN = int(raw_input ("\nEnter color choice: \n"))
+    userIN = int(input ("\nEnter color choice: \n"))
     colorfile.write("%i %s\n" %(userIN,colors[userIN - 1]))
     print
 

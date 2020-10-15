@@ -6,3 +6,4 @@ storage.json
 addevent.pyc
 color.pyc
 color.txt
+__pycache__

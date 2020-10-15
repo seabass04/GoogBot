@@ -9,7 +9,7 @@ def menu():
     while True:
         print ("Hello! Please select an option or 'exit' to exit")
         print ("1. Add Event\n2. Display Events\n3. Change event color\n4. Display event color")
-        userIN = raw_input()
+        userIN = input()
 
         if userIN == "1":
             addevent()
@@ -32,14 +32,14 @@ def menu():
             print ("Invalid input\n")
 
 def addevent():
-    eventTitle = raw_input ("\nEnter event title: \n")
+    eventTitle = input ("\nEnter event title: \n")
 
-    eventDate = raw_input ("Enter date (m d): \n")
+    eventDate = input ("Enter date (m d): \n")
     eventDate = parseDate(eventDate)
 
     dateCreated = date.today()
 
-    eventDescription = raw_input("Enter event description: \n")
+    eventDescription = input("Enter event description: \n")
 
     if not eventDescription:
         eventDescription += 'Created by GoogBot: %s' %dateCreated
